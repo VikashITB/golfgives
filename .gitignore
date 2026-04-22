@@ -46,3 +46,6 @@ prisma/migrations
 # Logs
 logs
 *.log
+
+# clerk configuration (can include secrets)
+/.clerk/
