@@ -1,4 +1,4 @@
-import Button from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -19,8 +19,18 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <Button>Explore Events</Button>
-            <Button variant="secondary">Learn More</Button>
+            <Link
+              href="/events"
+              className="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:opacity-90"
+            >
+              Explore Events
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-900 transition hover:bg-gray-50"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
 
