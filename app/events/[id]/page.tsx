@@ -47,7 +47,7 @@ export default async function EventPage({
             <div className="rounded-3xl border bg-white p-5 shadow-soft">
               <p className="text-sm text-gray-500">Goal</p>
               <p className="mt-2 font-semibold">
-                ${(event?.goal ?? 0).toLocaleString()}
+                ${(event?.goalAmount ?? 0).toLocaleString()}
               </p>
             </div>
 
