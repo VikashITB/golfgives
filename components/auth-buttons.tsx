@@ -1,10 +1,11 @@
-import { SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs/server";
+"use client";
 
-export default async function AuthButtons() {
-  const { userId } = await auth();
+import { SignInButton, SignUpButton, UserButton, useAuth } from "@clerk/nextjs";
 
-  if (userId) {
+export default function AuthButtons() {
+  const { isSignedIn } = useAuth();
+
+  if (isSignedIn) {
     return <UserButton />;
   }
 
