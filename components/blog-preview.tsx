@@ -23,7 +23,9 @@ export default function BlogPreview() {
             >
               <div className="h-40 rounded-2xl bg-gray-200" />
               <h3 className="mt-5 font-semibold">{post}</h3>
-              <p className="mt-2 text-sm text-gray-500">Read article</p>
+              <p className="mt-2 text-sm text-brand hover:underline cursor-pointer">
+                Read article
+              </p>
             </article>
           ))}
         </div>

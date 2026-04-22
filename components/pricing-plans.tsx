@@ -4,21 +4,57 @@ const plans = [
   {
     name: "Starter",
     price: "Free",
-    text: "Perfect for local clubs running their first fundraiser."
+    annualPrice: "Free",
+    text: "Perfect for local clubs running their first fundraiser.",
+    features: [
+      "1 active event",
+      "Basic registration",
+      "Donation tracking",
+      "Email support",
+      "GolfGives branding"
+    ],
+    cta: "Get Started Free",
+    ctaLink: "/sign-up"
   },
   {
     name: "Growth",
     price: "$49/mo",
-    text: "Advanced registration, sponsors, and donation tracking."
+    annualPrice: "$39/mo",
+    text: "Advanced registration, sponsors, and donation tracking.",
+    features: [
+      "Unlimited events",
+      "Custom branding",
+      "Sponsor management",
+      "Priority support",
+      "Advanced analytics",
+      "Team collaboration",
+      "API access",
+      "Custom domains"
+    ],
+    cta: "Start Free Trial",
+    ctaLink: "/sign-up?plan=growth",
+    popular: true
   },
   {
     name: "Enterprise",
     price: "Custom",
-    text: "For national campaigns and multi-event organizations."
+    annualPrice: "Custom",
+    text: "For national campaigns and multi-event organizations.",
+    features: [
+      "Everything in Growth",
+      "Dedicated account manager",
+      "White-label solution",
+      "SSO & advanced security",
+      "Custom integrations",
+      "SLA guarantee",
+      "Training & onboarding"
+    ],
+    cta: "Contact Sales",
+    ctaLink: "/contact"
   }
 ];
 
-export default function PricingPlans() {
+export default function PricingPlans({ annual = false }: { annual?: boolean }) {
   return (
     <section className="py-16">
       <div className="container space-y-8">
@@ -33,18 +69,37 @@ export default function PricingPlans() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="rounded-3xl border bg-white p-6 shadow-soft"
+              className={`relative rounded-3xl border bg-white p-6 shadow-soft ${
+                plan.popular ? "border-brand ring-2 ring-brand/20" : ""
+              }`}
             >
+              {plan.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
+                  Most Popular
+                </div>
+              )}
               <h3 className="text-xl font-semibold">{plan.name}</h3>
               <p className="mt-3 text-3xl font-bold text-brand">
-                {plan.price}
+                {annual ? plan.annualPrice : plan.price}
               </p>
               <p className="mt-3 text-sm text-gray-600">{plan.text}</p>
+              <ul className="mt-6 space-y-3">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2 text-sm">
+                    <span className="mt-0.5 text-brand">✓</span>
+                    <span className="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
               <Link
-                href="/dashboard/create-event"
-                className="mt-6 inline-block rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:opacity-90"
+                href={plan.ctaLink as any}
+                className={`mt-6 inline-block w-full rounded-full px-6 py-3 text-center font-semibold transition hover:opacity-90 ${
+                  plan.popular
+                    ? "bg-brand text-white"
+                    : "border border-brand text-brand hover:bg-brand hover:text-white"
+                }`}
               >
-                Get Started
+                {plan.cta}
               </Link>
             </div>
           ))}

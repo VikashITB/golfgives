@@ -4,9 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 
 const items = [
-  { label: "Events", href: "#events" },
-  { label: "Causes", href: "#causes" },
-  { label: "About", href: "#about" }
+  { label: "Events", href: "/events" },
+  { label: "Causes", href: "/charities" },
+  { label: "About", href: "/about" }
 ];
 
 export default function MobileMenu() {

@@ -4,8 +4,8 @@ import AuthButtons from "@/components/auth-buttons";
 
 const navItems = [
   { label: "Events", href: "/events" },
-  { label: "Causes", href: "#causes" },
-  { label: "About", href: "#about" },
+  { label: "Causes", href: "/charities" },
+  { label: "About", href: "/about" },
   { label: "Dashboard", href: "/dashboard" }
 ];
 

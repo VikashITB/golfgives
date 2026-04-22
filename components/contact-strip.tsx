@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ContactStrip() {
   return (
     <section className="py-12">
@@ -10,9 +12,12 @@ export default function ContactStrip() {
             </p>
           </div>
 
-          <button className="mt-4 rounded-full bg-brand px-6 py-3 font-semibold text-white md:mt-0">
+          <Link
+            href="/contact"
+            className="mt-4 inline-block rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:opacity-90 md:mt-0"
+          >
             Contact Us
-          </button>
+          </Link>
         </div>
       </div>
     </section>
