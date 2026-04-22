@@ -4,29 +4,37 @@ const events = [
   {
     title: "Spring Charity Classic",
     location: "California",
-    raised: "$24,000"
+    raised: 24000,
+    goal: 30000,
+    status: "UPCOMING"
   },
   {
     title: "Hope Invitational",
     location: "Texas",
-    raised: "$18,500"
+    raised: 18500,
+    goal: 22000,
+    status: "OPEN"
   },
   {
     title: "Birdies for Change",
     location: "Florida",
-    raised: "$31,200"
+    raised: 31200,
+    goal: 40000,
+    status: "UPCOMING"
   }
 ];
 
 export default function FeaturedEvents() {
   return (
-    <section id="events" className="py-16">
-      <div className="container space-y-8">
-        <div className="space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+    <section id="events" className="py-20">
+      <div className="container space-y-12">
+        <div className="space-y-4 text-center">
+          <p className="text-xs font-mono text-gold tracking-[0.2em] uppercase">
             Featured Events
           </p>
-          <h2 className="text-3xl font-bold">Upcoming Fundraisers</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">
+            Upcoming Fundraisers
+          </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -34,13 +42,50 @@ export default function FeaturedEvents() {
             <Link
               key={event.title}
               href="/events"
-              className="rounded-3xl border bg-white p-6 shadow-soft transition hover:shadow-md"
+              className="group relative rounded-2xl border border-white/7 bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/30 card-glow"
             >
-              <h3 className="text-xl font-semibold">{event.title}</h3>
-              <p className="mt-2 text-sm text-gray-500">{event.location}</p>
-              <p className="mt-6 text-sm font-medium text-brand">
-                Raised: {event.raised}
-              </p>
+              {/* Image placeholder */}
+              <div className="h-40 rounded-xl bg-gradient-to-br from-elevated to-surface flex items-center justify-center mb-5">
+                <span className="text-4xl">⛳</span>
+              </div>
+
+              {/* Status badge */}
+              <div className="absolute top-7 left-7">
+                <span className="px-3 py-1 text-xs font-mono font-medium text-gold border border-gold/30 rounded-full">
+                  {event.status}
+                </span>
+              </div>
+
+              {/* Content */}
+              <h3 className="text-lg font-display font-semibold text-primary">
+                {event.title}
+              </h3>
+              
+              <div className="mt-2 flex items-center gap-2 text-sm text-secondary">
+                <span>📍</span>
+                <span>{event.location}</span>
+              </div>
+
+              {/* Progress bar */}
+              <div className="mt-4">
+                <div className="h-1 rounded-full bg-white/8 overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-gold to-gold-light rounded-full"
+                    style={{ width: `${(event.raised / event.goal) * 100}%` }}
+                  />
+                </div>
+                <div className="mt-2 flex justify-between text-sm">
+                  <span className="text-gold font-medium">${event.raised.toLocaleString()}</span>
+                  <span className="text-secondary">of ${event.goal.toLocaleString()}</span>
+                </div>
+              </div>
+
+              {/* View button */}
+              <div className="mt-5">
+                <button className="w-full py-3 text-sm font-sans font-medium text-gold border border-gold/30 rounded-full group-hover:bg-gold group-hover:text-deep transition-all">
+                  View Event →
+                </button>
+              </div>
             </Link>
           ))}
         </div>

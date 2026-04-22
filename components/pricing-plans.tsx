@@ -56,47 +56,53 @@ const plans = [
 
 export default function PricingPlans({ annual = false }: { annual?: boolean }) {
   return (
-    <section className="py-16">
-      <div className="container space-y-8">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+    <section className="py-20">
+      <div className="container space-y-12">
+        <div className="text-center space-y-4">
+          <p className="text-xs font-mono text-gold tracking-[0.2em] uppercase">
             Plans
           </p>
-          <h2 className="mt-2 text-3xl font-bold">Flexible Pricing</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">
+            Flexible Pricing
+          </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-3xl border bg-white p-6 shadow-soft ${
-                plan.popular ? "border-brand ring-2 ring-brand/20" : ""
+              className={`relative rounded-2xl border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 ${
+                plan.popular
+                  ? "border-gold/40 bg-gradient-to-b from-elevated to-surface"
+                  : "border-white/7 hover:border-gold/30"
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-1 text-xs font-mono font-semibold text-deep">
                   Most Popular
                 </div>
               )}
-              <h3 className="text-xl font-semibold">{plan.name}</h3>
-              <p className="mt-3 text-3xl font-bold text-brand">
+              <h3 className="text-xl font-display font-semibold text-primary">
+                {plan.name}
+              </h3>
+              <p className="mt-3 text-4xl font-display font-bold text-gold">
                 {annual ? plan.annualPrice : plan.price}
               </p>
-              <p className="mt-3 text-sm text-gray-600">{plan.text}</p>
+              <p className="mt-3 text-sm text-secondary">{plan.text}</p>
               <ul className="mt-6 space-y-3">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm">
-                    <span className="mt-0.5 text-brand">✓</span>
-                    <span className="text-gray-600">{feature}</span>
+                  <li key={feature} className="flex items-start gap-3 text-sm">
+                    <span className="mt-0.5 text-green-highlight">✓</span>
+                    <span className="text-secondary">{feature}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href={plan.ctaLink as any}
-                className={`mt-6 inline-block w-full rounded-full px-6 py-3 text-center font-semibold transition hover:opacity-90 ${
+                className={`mt-8 inline-block w-full rounded-full px-6 py-3 text-center text-sm font-sans font-semibold transition-all ${
                   plan.popular
-                    ? "bg-brand text-white"
-                    : "border border-brand text-brand hover:bg-brand hover:text-white"
+                    ? "bg-gradient-to-r from-gold to-gold-dark text-deep hover:brightness-110 hover:shadow-glow"
+                    : "border border-gold/30 text-gold hover:bg-gold/10"
                 }`}
               >
                 {plan.cta}

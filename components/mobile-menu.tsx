@@ -16,24 +16,48 @@ export default function MobileMenu() {
     <div className="md:hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="rounded-full border px-4 py-2 text-sm font-semibold"
+        className="rounded-full border border-gold/30 px-4 py-2 text-sm font-semibold text-gold hover:bg-gold/10 transition-all"
       >
         Menu
       </button>
 
       {open && (
-        <div className="absolute left-4 right-4 top-20 rounded-3xl border bg-white p-5 shadow-soft">
-          <div className="flex flex-col gap-4">
-            {items.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href as any}
-                onClick={() => setOpen(false)}
-                className="text-sm font-medium"
-              >
-                {item.label}
-              </Link>
-            ))}
+        <div className="fixed inset-0 z-50 bg-deep/95 backdrop-blur-xl">
+          <div className="container flex h-full flex-col justify-center">
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute top-6 right-6 text-gold text-2xl"
+            >
+              ✕
+            </button>
+            <div className="flex flex-col gap-6">
+              {items.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href as any}
+                  onClick={() => setOpen(false)}
+                  className="text-3xl font-display font-semibold text-primary hover:text-gold transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="flex flex-col gap-4 mt-8">
+                <Link
+                  href={"/sign-in" as any}
+                  onClick={() => setOpen(false)}
+                  className="text-center px-6 py-3 text-sm font-sans font-medium text-gold border border-gold/30 rounded-full hover:bg-gold/10 transition-all"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  href={"/sign-up" as any}
+                  onClick={() => setOpen(false)}
+                  className="text-center px-6 py-3 text-sm font-sans font-semibold text-deep bg-gradient-to-r from-gold to-gold-dark rounded-full hover:brightness-110 transition-all"
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       )}
