@@ -68,12 +68,12 @@ export default function ImpactStats() {
               key={item.label}
               className="px-8 py-8 text-center"
             >
-              <p className="text-4xl md:text-5xl font-mono font-bold text-gold">
+              <p className="text-4xl md:text-5xl font-mono font-bold text-[#e8c97a]">
                 {item.label === "Golfers Joined" || item.label === "Volunteer Hours"
                   ? formatNumber(counts[index]) + "+"
                   : formatNumber(counts[index]) + "+"}
               </p>
-              <p className="mt-2 text-xs font-sans text-secondary uppercase tracking-[0.1em]">
+              <p className="mt-2 text-xs font-sans uppercase tracking-[0.1em]" style={{ color: 'rgba(240,237,230,0.6)' }}>
                 {item.label}
               </p>
             </div>

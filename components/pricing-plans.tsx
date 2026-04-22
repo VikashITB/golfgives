@@ -59,10 +59,13 @@ export default function PricingPlans({ annual = false }: { annual?: boolean }) {
     <section className="py-20">
       <div className="container space-y-12">
         <div className="text-center space-y-4">
-          <p className="text-xs font-mono text-gold tracking-[0.2em] uppercase">
-            Plans
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-[12px] font-mono font-semibold text-[#e8c97a] tracking-[0.15em] uppercase">
+              Plans
+            </p>
+            <div className="w-10 h-px bg-[#c9a84c]" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#f0ede6]">
             Flexible Pricing
           </h2>
         </div>
@@ -82,18 +85,18 @@ export default function PricingPlans({ annual = false }: { annual?: boolean }) {
                   Most Popular
                 </div>
               )}
-              <h3 className="text-xl font-display font-semibold text-primary">
+              <h3 className="text-xl font-display font-semibold text-[#f0ede6]">
                 {plan.name}
               </h3>
-              <p className="mt-3 text-4xl font-display font-bold text-gold">
+              <p className={`mt-3 text-4xl font-display font-bold ${plan.popular ? 'text-[#e8c97a]' : 'text-[#f0ede6]'}`}>
                 {annual ? plan.annualPrice : plan.price}
               </p>
-              <p className="mt-3 text-sm text-secondary">{plan.text}</p>
+              <p className="mt-3 text-sm" style={{ color: 'rgba(240,237,230,0.5)' }}>{plan.text}</p>
               <ul className="mt-6 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3 text-sm">
-                    <span className="mt-0.5 text-green-highlight">✓</span>
-                    <span className="text-secondary">{feature}</span>
+                    <span className="mt-0.5 text-[#52b788]">✓</span>
+                    <span style={{ color: 'rgba(240,237,230,0.7)' }}>{feature}</span>
                   </li>
                 ))}
               </ul>

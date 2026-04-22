@@ -29,10 +29,13 @@ export default function FeaturedEvents() {
     <section id="events" className="py-20">
       <div className="container space-y-12">
         <div className="space-y-4 text-center">
-          <p className="text-xs font-mono text-gold tracking-[0.2em] uppercase">
-            Featured Events
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-[12px] font-mono font-semibold text-[#e8c97a] tracking-[0.15em] uppercase">
+              Featured Events
+            </p>
+            <div className="w-10 h-px bg-[#c9a84c]" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#f0ede6]">
             Upcoming Fundraisers
           </h2>
         </div>
@@ -51,7 +54,7 @@ export default function FeaturedEvents() {
 
               {/* Status badge */}
               <div className="absolute top-7 left-7">
-                <span className="px-3 py-1 text-xs font-mono font-medium text-gold border border-gold/30 rounded-full">
+                <span className="px-3 py-1 text-[11px] font-mono font-medium border rounded-full" style={{ background: 'rgba(201,168,76,0.12)', borderColor: 'rgba(201,168,76,0.35)', color: '#e8c97a', letterSpacing: '0.08em' }}>
                   {event.status}
                 </span>
               </div>
@@ -61,7 +64,7 @@ export default function FeaturedEvents() {
                 {event.title}
               </h3>
               
-              <div className="mt-2 flex items-center gap-2 text-sm text-secondary">
+              <div className="mt-2 flex items-center gap-2 text-sm" style={{ color: 'rgba(240,237,230,0.72)' }}>
                 <span>📍</span>
                 <span>{event.location}</span>
               </div>
@@ -75,8 +78,8 @@ export default function FeaturedEvents() {
                   />
                 </div>
                 <div className="mt-2 flex justify-between text-sm">
-                  <span className="text-gold font-medium">${event.raised.toLocaleString()}</span>
-                  <span className="text-secondary">of ${event.goalAmount.toLocaleString()}</span>
+                  <span className="font-medium text-[#e8c97a]">${event.raised.toLocaleString()}</span>
+                  <span style={{ color: 'rgba(240,237,230,0.4)' }}>of ${event.goalAmount.toLocaleString()}</span>
                 </div>
               </div>
 

@@ -52,43 +52,43 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <p className="font-display font-semibold text-primary mb-4">Quick Links</p>
+          <p className="font-display font-semibold text-[#f0ede6] mb-4">Quick Links</p>
           <div className="space-y-3">
-            <Link href="/events" className="block text-sm text-secondary hover:text-gold transition-colors">Events</Link>
-            <Link href="/charities" className="block text-sm text-secondary hover:text-gold transition-colors">Causes</Link>
-            <Link href="/about" className="block text-sm text-secondary hover:text-gold transition-colors">About</Link>
-            <Link href="/pricing" className="block text-sm text-secondary hover:text-gold transition-colors">Pricing</Link>
-            <Link href="/contact" className="block text-sm text-secondary hover:text-gold transition-colors">Contact</Link>
+            <Link href="/events" className="block text-sm hover:text-[#c9a84c] transition-colors" style={{ color: 'rgba(240,237,230,0.5)' }}>Events</Link>
+            <Link href="/charities" className="block text-sm hover:text-[#c9a84c] transition-colors" style={{ color: 'rgba(240,237,230,0.5)' }}>Causes</Link>
+            <Link href="/about" className="block text-sm hover:text-[#c9a84c] transition-colors" style={{ color: 'rgba(240,237,230,0.5)' }}>About</Link>
+            <Link href="/pricing" className="block text-sm hover:text-[#c9a84c] transition-colors" style={{ color: 'rgba(240,237,230,0.5)' }}>Pricing</Link>
+            <Link href="/contact" className="block text-sm hover:text-[#c9a84c] transition-colors" style={{ color: 'rgba(240,237,230,0.5)' }}>Contact</Link>
           </div>
         </div>
 
         {/* Contact */}
         <div>
-          <p className="font-display font-semibold text-primary mb-4">Contact</p>
+          <p className="font-display font-semibold text-[#f0ede6] mb-4">Contact</p>
           <div className="space-y-3">
-            <a href="mailto:hello@golfgives.com" className="block text-sm text-secondary hover:text-gold transition-colors">hello@golfgives.com</a>
-            <a href="tel:+18005550199" className="block text-sm text-secondary hover:text-gold transition-colors">+1 (800) 555-0199</a>
+            <a href="mailto:hello@golfgives.com" className="block text-sm hover:text-[#c9a84c] transition-colors" style={{ color: 'rgba(240,237,230,0.55)' }}>hello@golfgives.com</a>
+            <a href="tel:+18005550199" className="block text-sm hover:text-[#c9a84c] transition-colors" style={{ color: 'rgba(240,237,230,0.55)' }}>+1 (800) 555-0199</a>
           </div>
         </div>
 
         {/* Legal */}
         <div>
-          <p className="font-display font-semibold text-primary mb-4">Legal</p>
+          <p className="font-display font-semibold text-[#f0ede6] mb-4">Legal</p>
           <div className="space-y-3">
-            <span className="block text-sm text-secondary">Privacy Policy</span>
-            <span className="block text-sm text-secondary">Terms of Service</span>
+            <span className="block text-sm" style={{ color: 'rgba(240,237,230,0.5)' }}>Privacy Policy</span>
+            <span className="block text-sm" style={{ color: 'rgba(240,237,230,0.5)' }}>Terms of Service</span>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="container mt-12 pt-8 border-t border-white/7 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-xs text-secondary">
+        <p className="text-xs" style={{ color: 'rgba(240,237,230,0.3)' }}>
           © {new Date().getFullYear()} GolfGives. All rights reserved.
         </p>
         <div className="flex gap-6">
-          <span className="text-xs text-secondary">Privacy Policy</span>
-          <span className="text-xs text-secondary">Terms of Service</span>
+          <span className="text-xs" style={{ color: 'rgba(240,237,230,0.3)' }}>Privacy Policy</span>
+          <span className="text-xs" style={{ color: 'rgba(240,237,230,0.3)' }}>Terms of Service</span>
         </div>
       </div>
     </footer>

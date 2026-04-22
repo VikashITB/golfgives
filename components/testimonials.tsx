@@ -24,10 +24,13 @@ export default function Testimonials() {
     <section className="py-20">
       <div className="container space-y-12">
         <div className="text-center space-y-4">
-          <p className="text-xs font-mono text-gold tracking-[0.2em] uppercase">
-            Testimonials
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-[12px] font-mono font-semibold text-[#e8c97a] tracking-[0.15em] uppercase">
+              Testimonials
+            </p>
+            <div className="w-10 h-px bg-[#c9a84c]" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#f0ede6]">
             What People Say
           </h2>
         </div>
@@ -48,8 +51,8 @@ export default function Testimonials() {
                 {"★".repeat(item.rating)}
               </div>
 
-              {/* Quote */}
-              <p className="mt-4 text-base font-sans text-primary italic leading-relaxed">
+              {/* Quote text */}
+              <p className="mt-4 text-base font-sans italic leading-relaxed" style={{ color: '#f0ede6', opacity: 0.85 }}>
                 {item.text}
               </p>
 
@@ -57,10 +60,10 @@ export default function Testimonials() {
               <div className="mt-6 flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-gold/20 border-2 border-gold/40" />
                 <div>
-                  <p className="font-display font-semibold text-primary">
+                  <p className="font-display font-semibold text-[#f0ede6]">
                     {item.name}
                   </p>
-                  <p className="text-sm text-secondary">{item.role}</p>
+                  <p className="text-sm" style={{ color: 'rgba(240,237,230,0.45)' }}>{item.role}</p>
                 </div>
               </div>
             </article>

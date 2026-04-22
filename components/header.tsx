@@ -34,7 +34,7 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl font-display font-bold text-gold">⛳</span>
-          <span className="text-2xl font-display font-bold text-primary">GolfGives</span>
+          <span className="text-2xl font-display font-bold text-[#f0ede6]">GolfGives</span>
         </Link>
 
         <nav className="hidden gap-8 md:flex">
@@ -42,7 +42,7 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href as any}
-              className="text-sm font-sans text-secondary hover:text-gold-light transition-colors relative group"
+              className="text-sm font-sans transition-colors relative group hover:text-[#e8c97a]" style={{ color: 'rgba(240,237,230,0.65)' }}
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all group-hover:w-full" />
