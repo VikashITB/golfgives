@@ -4,8 +4,6 @@ export default clerkMiddleware();
 
 export const config = {
   matcher: [
-    "/((?!_next|.*\\..*).*)",
-    "/",
-    "/(api|trpc)(.*)"
+    "/((?!_next/static|_next/image|favicon.ico).*)"
   ]
 };
