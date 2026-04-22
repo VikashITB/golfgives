@@ -18,7 +18,7 @@ export default async function EventPage({
     where: {
       id
     }
-  });
+  }).catch(() => null);
 
   if (!event) {
     notFound();
@@ -33,28 +33,28 @@ export default async function EventPage({
           </p>
 
           <h1 className="text-4xl font-bold">
-            {event.title}
+            {event?.title ?? "Untitled Event"}
           </h1>
 
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-3xl border bg-white p-5 shadow-soft">
               <p className="text-sm text-gray-500">Location</p>
               <p className="mt-2 font-semibold">
-                {event.location}
+                {event?.location ?? "TBD"}
               </p>
             </div>
 
             <div className="rounded-3xl border bg-white p-5 shadow-soft">
               <p className="text-sm text-gray-500">Goal</p>
               <p className="mt-2 font-semibold">
-                ${event.goalAmount}
+                ${(event?.goal ?? 0).toLocaleString()}
               </p>
             </div>
 
             <div className="rounded-3xl border bg-white p-5 shadow-soft">
               <p className="text-sm text-gray-500">Raised</p>
               <p className="mt-2 font-semibold">
-                ${event.raised}
+                ${(event?.raised ?? 0).toLocaleString()}
               </p>
             </div>
           </div>
