@@ -11,7 +11,7 @@ export default async function DashboardStats({
     where: {
       userId
     }
-  });
+  }).catch(() => 0);
 
   const raised = await prisma.event.aggregate({
     _sum: {
@@ -20,7 +20,7 @@ export default async function DashboardStats({
     where: {
       userId
     }
-  });
+  }).catch(() => ({ _sum: { raised: 0 } }));
 
   const donations = await prisma.donation.count({
     where: {
@@ -28,7 +28,7 @@ export default async function DashboardStats({
         userId
       }
     }
-  });
+  }).catch(() => 0);
 
   const cards = [
     {

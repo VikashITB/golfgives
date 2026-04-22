@@ -20,7 +20,7 @@ export default async function RecentDonations({
       createdAt: "desc"
     },
     take: 5
-  });
+  }).catch(() => []);
 
   return (
     <div className="rounded-3xl border bg-white p-6 shadow-soft">
@@ -35,14 +35,14 @@ export default async function RecentDonations({
           </p>
         )}
 
-        {donations.map((item) => (
+        {donations.map((item: any) => (
           <div
             key={item.id}
             className="flex items-center justify-between"
           >
             <div>
               <p className="font-medium">
-                {item.event.title}
+                {item.event?.title || "Unknown Event"}
               </p>
 
               <p className="text-sm text-gray-500">
