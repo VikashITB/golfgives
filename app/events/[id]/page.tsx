@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import prisma from "@/lib/db";
-import DonateForm from "@/components/donate-form";
 
 type EventPageProps = {
   params: Promise<{
@@ -60,7 +59,10 @@ export default async function EventPage({
           </div>
         </div>
 
-        <DonateForm eventId={event.id} />
+        <div className="rounded-3xl border bg-white p-6 shadow-soft">
+          <p className="font-semibold">Donate Form</p>
+          <p className="mt-2 text-sm text-gray-500">Form temporarily disabled for debugging.</p>
+        </div>
       </div>
     </main>
   );
