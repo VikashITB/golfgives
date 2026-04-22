@@ -1,11 +1,12 @@
 import { redirect } from "next/navigation";
 
-export default function DonateSuccessPage({
+export default async function DonateSuccessPage({
   searchParams,
 }: {
-  searchParams: { session_id?: string };
+  searchParams: Promise<{ session_id?: string }>;
 }) {
-  if (!searchParams.session_id) {
+  const params = await searchParams;
+  if (!params.session_id) {
     redirect("/");
   }
 
@@ -34,7 +35,7 @@ export default function DonateSuccessPage({
               Donation ID
             </p>
             <p className="text-lg font-mono font-semibold text-[#e8c97a]">
-              {searchParams.session_id.slice(0, 8)}...
+              {params.session_id.slice(0, 8)}...
             </p>
           </div>
         </div>
