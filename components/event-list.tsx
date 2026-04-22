@@ -3,8 +3,8 @@ import DeleteEventButton from "@/components/delete-event-button";
 
 type EventItem = {
   id: string;
-  title: string;
-  location: string;
+  title?: string;
+  location?: string;
 };
 
 type EventListProps = {
@@ -35,11 +35,11 @@ export default function EventList({
                 href={`/events/${event.id}` as any}
                 className="font-semibold hover:text-brand"
               >
-                {event.title}
+                {event.title ?? "Untitled Event"}
               </Link>
 
               <p className="mt-1 text-sm text-gray-500">
-                {event.location}
+                {event.location ?? "Location TBD"}
               </p>
             </div>
 

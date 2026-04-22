@@ -8,7 +8,7 @@ export default async function EventsPage() {
     orderBy: {
       createdAt: "desc"
     }
-  });
+  }).catch(() => []);
 
   return (
     <main className="container py-16 space-y-6">
