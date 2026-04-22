@@ -4,32 +4,45 @@ const goals = [
   { name: "School Meals Drive", raised: "$31,200", target: "$40,000" }
 ];
 
-export default function DonationTracker() {
+interface DonationTrackerProps {
+  onDonate: (charity: string) => void;
+}
+
+export default function DonationTracker({ onDonate }: DonationTrackerProps) {
   return (
     <section className="py-16">
       <div className="container space-y-8">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
-            Fundraising Goals
-          </p>
-          <h2 className="mt-2 text-3xl font-bold">Track Active Campaigns</h2>
+        <div className="text-center space-y-4">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-[12px] font-mono font-semibold text-[#e8c97a] tracking-[0.15em] uppercase">
+              Fundraising Goals
+            </p>
+            <div className="w-10 h-px bg-[#c9a84c]" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#f0ede6]">
+            Track Active Campaigns
+          </h2>
         </div>
 
         <div className="space-y-5">
           {goals.map((item) => (
             <div
               key={item.name}
-              className="rounded-3xl border bg-white p-6 shadow-soft"
+              className="rounded-2xl border border-white/7 bg-surface p-6"
             >
               <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <p className="font-semibold">{item.name}</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-display font-semibold text-[#f0ede6]">{item.name}</p>
+                  <p className="text-sm" style={{ color: 'rgba(240,237,230,0.65)' }}>
                     {item.raised} raised of {item.target}
                   </p>
                 </div>
 
-                <button className="rounded-full bg-brand px-5 py-2 text-sm font-semibold text-white">
+                <button 
+                  onClick={() => onDonate(item.name)}
+                  className="rounded-full px-5 py-2 text-sm font-semibold text-deep transition hover:brightness-110 hover:shadow-glow"
+                  style={{ background: 'linear-gradient(to right, #c9a84c, #b8923e)' }}
+                >
                   Donate
                 </button>
               </div>

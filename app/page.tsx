@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Sponsors from "@/components/sponsors";
@@ -24,8 +27,14 @@ import Newsletter from "@/components/newsletter";
 import ContactStrip from "@/components/contact-strip";
 import CtaBanner from "@/components/cta-banner";
 import Footer from "@/components/footer";
+import DonateModal from "@/components/DonateModal";
 
 export default function HomePage() {
+  const [donateModal, setDonateModal] = useState<{ open: boolean; charity: string }>({
+    open: false,
+    charity: ''
+  });
+
   return (
     <>
       <Header />
@@ -38,9 +47,9 @@ export default function HomePage() {
         <FeaturedEvents />
         <EventProcess />
         <LiveImpact />
-        <DonationTracker />
+        <DonationTracker onDonate={(charity) => setDonateModal({ open: true, charity })} />
         <Causes />
-        <SupportOptions />
+        <SupportOptions onDonate={() => setDonateModal({ open: true, charity: 'GolfGives Charity Fund' })} />
         <AboutSection />
         <CoursePartners />
         <VolunteerSection />
@@ -58,6 +67,13 @@ export default function HomePage() {
       </main>
 
       <Footer />
+
+      {donateModal.open && (
+        <DonateModal
+          charityName={donateModal.charity}
+          onClose={() => setDonateModal({ open: false, charity: '' })}
+        />
+      )}
     </>
   );
 }
