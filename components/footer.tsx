@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200 py-10">
@@ -12,9 +14,9 @@ export default function Footer() {
         <div>
           <p className="font-semibold">Quick Links</p>
           <div className="mt-3 space-y-2 text-sm text-gray-500">
-            <p>Events</p>
-            <p>Causes</p>
-            <p>About</p>
+            <Link href="/events" className="hover:text-brand">Events</Link>
+            <Link href="/charities" className="hover:text-brand">Causes</Link>
+            <Link href="/about" className="hover:text-brand">About</Link>
           </div>
         </div>
 

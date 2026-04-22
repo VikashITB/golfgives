@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const plans = [
   {
     name: "Starter",
@@ -38,6 +40,12 @@ export default function PricingPlans() {
                 {plan.price}
               </p>
               <p className="mt-3 text-sm text-gray-600">{plan.text}</p>
+              <Link
+                href="/dashboard/create-event"
+                className="mt-6 inline-block rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:opacity-90"
+              >
+                Get Started
+              </Link>
             </div>
           ))}
         </div>

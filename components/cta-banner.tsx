@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CtaBanner() {
   return (
     <section className="pb-16">
@@ -11,9 +13,12 @@ export default function CtaBanner() {
               </p>
             </div>
 
-            <button className="rounded-full bg-white px-6 py-3 font-semibold text-brand">
+            <Link
+              href="/dashboard/create-event"
+              className="rounded-full bg-white px-6 py-3 font-semibold text-brand"
+            >
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       </div>

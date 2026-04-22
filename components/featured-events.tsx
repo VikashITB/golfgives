@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const events = [
   {
     title: "Spring Charity Classic",
@@ -29,16 +31,17 @@ export default function FeaturedEvents() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {events.map((event) => (
-            <article
+            <Link
               key={event.title}
-              className="rounded-3xl border bg-white p-6 shadow-soft"
+              href="/events"
+              className="rounded-3xl border bg-white p-6 shadow-soft transition hover:shadow-md"
             >
               <h3 className="text-xl font-semibold">{event.title}</h3>
               <p className="mt-2 text-sm text-gray-500">{event.location}</p>
               <p className="mt-6 text-sm font-medium text-brand">
                 Raised: {event.raised}
               </p>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
