@@ -5,21 +5,21 @@ const events = [
     title: "Spring Charity Classic",
     location: "California",
     raised: 24000,
-    goal: 30000,
+    goalAmount: 30000,
     status: "UPCOMING"
   },
   {
     title: "Hope Invitational",
     location: "Texas",
     raised: 18500,
-    goal: 22000,
+    goalAmount: 22000,
     status: "OPEN"
   },
   {
     title: "Birdies for Change",
     location: "Florida",
     raised: 31200,
-    goal: 40000,
+    goalAmount: 40000,
     status: "UPCOMING"
   }
 ];
@@ -71,12 +71,12 @@ export default function FeaturedEvents() {
                 <div className="h-1 rounded-full bg-white/8 overflow-hidden">
                   <div 
                     className="h-full bg-gradient-to-r from-gold to-gold-light rounded-full"
-                    style={{ width: `${(event.raised / event.goal) * 100}%` }}
+                    style={{ width: `${(event.raised / event.goalAmount) * 100}%` }}
                   />
                 </div>
                 <div className="mt-2 flex justify-between text-sm">
                   <span className="text-gold font-medium">${event.raised.toLocaleString()}</span>
-                  <span className="text-secondary">of ${event.goal.toLocaleString()}</span>
+                  <span className="text-secondary">of ${event.goalAmount.toLocaleString()}</span>
                 </div>
               </div>
 

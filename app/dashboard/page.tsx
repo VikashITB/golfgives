@@ -100,16 +100,16 @@ export default async function DashboardPage() {
                       <td className="px-4 py-3">
                         <span
                           className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
-                            event.raised >= event.goal
+                            event.raised >= event.goalAmount
                               ? "bg-green-100 text-green-700"
                               : "bg-blue-100 text-blue-700"
                           }`}
                         >
-                          {event.raised >= event.goal ? "Completed" : "Active"}
+                          {event.raised >= event.goalAmount ? "Completed" : "Active"}
                         </span>
                       </td>
                       <td className="px-4 py-3">${event.raised?.toLocaleString() || 0}</td>
-                      <td className="px-4 py-3">${event.goal?.toLocaleString() || 0}</td>
+                      <td className="px-4 py-3">${event.goalAmount?.toLocaleString() || 0}</td>
                       <td className="px-4 py-3">
                         <div className="flex gap-2">
                           <Link
