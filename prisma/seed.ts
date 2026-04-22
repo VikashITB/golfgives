@@ -9,36 +9,30 @@ async function main() {
       data: {
         title: 'Spring Charity Classic',
         location: 'Pebble Beach, California',
-        date: '2026-04-15',
-        goal: 50000,
+        startsAt: new Date('2026-04-15'),
+        goalAmount: 50000,
         raised: 24000,
-        charity: 'Children Health Foundation',
-        userId: 'seed-user-id',
-        donationCount: 45
+        userId: 'seed-user-id'
       }
     }),
     prisma.event.create({
       data: {
         title: 'Hope Invitational',
         location: 'Augusta National, Georgia',
-        date: '2026-05-20',
-        goal: 35000,
+        startsAt: new Date('2026-05-20'),
+        goalAmount: 35000,
         raised: 18500,
-        charity: 'Clean Water Trust',
-        userId: 'seed-user-id',
-        donationCount: 32
+        userId: 'seed-user-id'
       }
     }),
     prisma.event.create({
       data: {
         title: 'Birdies for Change',
         location: 'TPC Sawgrass, Florida',
-        date: '2026-06-10',
-        goal: 40000,
+        startsAt: new Date('2026-06-10'),
+        goalAmount: 40000,
         raised: 31200,
-        charity: 'Junior Sports Fund',
-        userId: 'seed-user-id',
-        donationCount: 28
+        userId: 'seed-user-id'
       }
     })
   ]);
